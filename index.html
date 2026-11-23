@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanjana Security Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Red+Hat+Text:wght@400;500;600&family=Red+Hat+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#070f26);--ink:light-dark(#0b1f4b,#e6ebf7);--soft:light-dark(#4a5778,#a9b4d0);--panel:light-dark(#f1f3f9,#0d1a3c);--rule:light-dark(#d9deea,#1f2d55);--band:#0b1f4b;--mag:light-dark(#e0115f,#ff3d82);--ok:light-dark(#0b1f4b,#8fa6e6);--hi:light-dark(#ffe1ec,#4a1030)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:24px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Red Hat Text",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Red Hat Display",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,3.6vw,42px);font-weight:900}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em;margin:24px 0 6px}
+p{margin:0 0 12px;max-width:66ch}
+a{color:inherit}
+code,.mono{font-family:"Red Hat Mono",ui-monospace,monospace;font-size:14px;overflow-wrap:anywhere}
+.band{padding-block:clamp(28px,4vw,64px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.blue{background:var(--band);color:#fff}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px;padding-bottom:22px;border-bottom:1px solid #ffffff26}
+nav .me{font:900 20px "Red Hat Display",sans-serif;margin-right:auto;text-decoration:none}
+nav a{text-decoration:none;opacity:.85;padding:10px 0}
+nav a:hover,nav a:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:4px}
+a:focus-visible,.btn:focus-visible{outline:3px solid #ffb3cf;outline-offset:3px}
+.top{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px 56px;align-items:end;padding-top:44px}
+h1{font-size:clamp(64px,11vw,148px);font-weight:900;letter-spacing:-.045em;line-height:.9}
+.role{font:700 clamp(20px,2.4vw,28px)/1.2 "Red Hat Display",sans-serif;margin-top:18px;letter-spacing:-.01em}
+.role em{font-style:normal;color:#ff6b9d}
+.lede{font-size:17px;color:#d5ddf3;margin-top:14px}
+.index{border-top:2px solid #fff}
+.index a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:14px 0;border-bottom:1px solid #ffffff2e;text-decoration:none}
+.index a:hover .t{text-decoration:underline;text-underline-offset:4px}
+.index .no{font:600 14px "Red Hat Mono",monospace;color:#aeb9d8}
+.index .t{font-weight:600}
+.index .tag{font:600 13px "Red Hat Mono",monospace;padding:3px 8px;border-radius:4px;background:#e0115f;white-space:nowrap}
+.index .tag.b{background:#2c4a92}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;margin-top:18px;border-radius:999px;background:#e0115f;color:#fff;font-weight:600;text-decoration:none}
+.btn.ghost{background:transparent;border:1px solid #ffffff55;margin-left:8px}
+.btn:hover{filter:brightness(1.1)}
+.chainhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:48px;padding-top:18px;border-top:1px solid #ffffff26;font-size:15px;color:#c3cde9}
+.chainhead b{color:#fff;font-family:"Red Hat Display",sans-serif;font-size:18px}
+.fig{position:relative;min-height:240px;margin-top:20px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.fig text{font-family:"Red Hat Text",sans-serif}
+.note{font-size:13px;color:#aeb9d8;margin-top:10px}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px 56px;align-items:start}
+.case.flip .text{order:2}
+.filehead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-bottom:16px}
+.fileno{font:600 14px "Red Hat Mono",monospace;color:var(--soft)}
+.stamp{font:900 15px "Red Hat Display",sans-serif;color:var(--mag);border:2.5px solid var(--mag);border-radius:6px;padding:4px 10px;transform:rotate(-3deg);white-space:nowrap}
+.stamp.b{color:var(--ink);border-color:var(--ink)}
+.meta{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 18px;font-size:15px;margin:18px 0 6px;padding:12px 0;border-block:1px solid var(--rule)}
+.meta dt{color:var(--soft)}
+.meta dd{margin:0}
+.red{display:inline-block;width:7.5em;height:1em;vertical-align:-2px;background:var(--ink);border-radius:2px}
+.case ul{margin:0 0 12px;padding-left:20px;max-width:66ch}
+.case li{margin-bottom:6px}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:clamp(18px,2.4vw,28px)}
+.panel+.panel{margin-top:16px}
+.ph{font:700 15px "Red Hat Display",sans-serif;margin:0 0 12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ph span{font:500 13px "Red Hat Text",sans-serif;color:var(--soft)}
+pre{overflow-x:auto;background:var(--band);color:#dfe6f7;border-radius:10px;padding:14px 16px;font:13.5px/1.6 "Red Hat Mono",ui-monospace,monospace;margin:0;max-width:100%}
+pre .k{color:#8fa6e6}
+pre .x{background:#e0115f;color:#fff;border-radius:3px;padding:0 3px}
+pre .c{color:#7d8bb3}
+.sevrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.sevrow div{border-radius:8px;padding:10px 12px;background:var(--bg);border:1px solid var(--rule)}
+.sevrow b{display:block;font:900 30px/1 "Red Hat Display",sans-serif}
+.sevrow span{font-size:13px;color:var(--soft)}
+.sevrow .c b,.sevrow .h b{color:var(--mag)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:600;color:var(--soft);border-bottom:2px solid var(--ink);padding:6px 8px}
+td{border-bottom:1px solid var(--rule);padding:9px 8px;vertical-align:top}
+td.s{text-align:right;font:700 15px "Red Hat Mono",monospace;white-space:nowrap}
+td.s.hot{color:var(--mag)}
+td .v{display:block;color:var(--soft);font-size:12.5px;margin-top:2px}
+.pill{font-size:12.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--hi);color:var(--mag);white-space:nowrap}
+.pill.ok{background:light-dark(#dcf5ea,#0f3b2b);color:light-dark(#0b6b45,#5fe0a8)}
+.grid{display:grid;grid-template-columns:9.5em minmax(0,1fr) 3.4em;gap:8px 12px;align-items:center;font-size:14px}
+.cells{display:flex;flex-wrap:wrap;gap:3px}
+.cells i{width:13px;height:13px;border-radius:3px;background:var(--rule)}
+.cells i.on{background:var(--mag)}
+.grid .n{text-align:right;color:var(--soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--soft);margin-top:14px}
+.key i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px;background:var(--rule)}
+.key i.on{background:var(--mag)}
+.big{display:flex;flex-wrap:wrap;gap:12px 36px;margin-bottom:18px}
+.big div{display:flex;flex-direction:column}
+.big b{font:900 clamp(36px,5vw,52px)/1 "Red Hat Display",sans-serif;letter-spacing:-.03em}
+.big b.hot{color:var(--mag)}
+.big span{color:var(--soft);font-size:14px;margin-top:6px}
+.funnel{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:6px 14px;align-items:center;font-size:14px}
+.funnel .lab{grid-column:1/-1;display:flex;justify-content:space-between;gap:10px;margin-top:6px}
+.funnel .lab b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.funnel .bar{grid-column:1/-1;height:16px;border-radius:3px;background:var(--ok)}
+.funnel .bar.hot{background:var(--mag)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:28px;counter-reset:st}
+.steps div{padding:18px 18px 4px 0;border-top:4px solid var(--ink);position:relative}
+.steps div:last-child{border-top-color:var(--mag)}
+.steps b{display:block;font:900 22px "Red Hat Display",sans-serif;margin-bottom:6px}
+.steps b::before{counter-increment:st;content:counter(st) " ";color:var(--mag)}
+.steps p{font-size:15px;color:var(--soft)}
+.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 40px;margin-top:28px}
+.tools h3{margin-top:0;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.tools ul{list-style:none;padding:0;margin:0}
+.tools li{padding:9px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:12px}
+.tools li span{color:var(--soft);font-size:14px;white-space:nowrap}
+.sep{border:0;border-top:1px solid var(--rule);margin:0 auto;max-width:1240px}
+footer .wrap.cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 48px;align-items:end}
+footer h2{font-size:clamp(34px,5vw,60px)}
+footer p{color:#d5ddf3;margin-top:14px}
+.links{display:grid;gap:4px}
+.links a{display:flex;justify-content:space-between;gap:12px;min-height:48px;align-items:center;border-bottom:1px solid #ffffff2e;text-decoration:none}
+.links a span{color:#c3cde9;font-size:15px}
+.links a:hover b{text-decoration:underline;text-underline-offset:4px}
+.small{font-size:13px;color:#aeb9d8;margin-top:36px}
+@media(max-width:900px){.case,.top,footer .wrap.cols{grid-template-columns:minmax(0,1fr)}.case.flip .text{order:0}.tools{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:800px){.fig{min-height:520px}}
+@media(max-width:600px){.tools,.steps{grid-template-columns:minmax(0,1fr)}.sevrow{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:7.2em minmax(0,1fr) 3em;font-size:13px}.fig{min-height:520px}.btn.ghost{margin-left:0}table{font-size:13px}th,td{padding:7px 4px}.stack thead{display:none}.stack tr{display:grid;padding-block:8px;border-bottom:1px solid var(--rule)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0;text-align:right}.stack td::before{content:attr(data-l);color:var(--soft);text-align:left}.stack td.f{display:block;text-align:left}.stack td.f::before{display:none}}
+</style>
+</head>
+<body>
+
+<header class="band blue">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="me" href="#top">Sanjana</a>
+      <a href="#cf01">Case studies</a>
+      <a href="#method">Method</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="top" id="top">
+      <div>
+        <h1>Sanjana</h1>
+        <div class="role">Offensive security <em>and</em> detection engineering</div>
+        <p class="lede">I chain small bugs into the breach a real attacker would find, then write the detection rules that catch it next time. Web apps, APIs and AWS. Dhaka, working remotely.</p>
+        <a class="btn" href="#contact">Hire me for a test</a><a class="btn ghost" href="https://github.com/urbi489">GitHub</a>
+      </div>
+      <div class="index" aria-label="Case index">
+        <a href="#cf01"><span class="no">01</span><span class="t">Case study: A pentest that chained two bugs into a critical breach</span><span class="tag">CVSS 9.6</span></a>
+        <a href="#cf02"><span class="no">02</span><span class="t">Case study: A purple-team lab that proves every detection rule</span><span class="tag b"><span id="pctTop">52%</span> caught</span></a>
+      </div>
+    </div>
+
+    <div class="chainhead"><b>The kill chain from case study 01, hop by hop</b><span>Top: attack path with MITRE ATT&amp;CK IDs · Bottom: does the case study 02 lab raise an alert?</span></div>
+    <div class="fig" id="hero" role="img" aria-label="Kill chain from case study 01. Attacker reaches the order API with technique T1190, abuses the image importer via SSRF, queries the cloud metadata service with T1552.005, uses stolen IAM credentials with T1078.004 and reads the backup bucket with T1530. The detection lane shows an alert firing at the metadata hop and blind spots at the other hops, including the bucket read."></div>
+  </div>
+</header>
+
+<main>
+  <section class="band" id="cf01">
+    <div class="wrap case">
+      <div class="text">
+        <div class="filehead"><span class="fileno">CASE STUDY 01 · offensive</span><span class="stamp">Critical · 9.6</span></div>
+        <h2>Case study: A pentest that chained two bugs into read-write access to every customer backup</h2>
+        <dl class="meta">
+          <dt>Client</dt><dd><span class="red" role="img" aria-label="redacted"></span> e-commerce, under NDA</dd>
+          <dt>Scope</dt><dd>Storefront, order API v2, admin panel, AWS account</dd>
+          <dt>Type</dt><dd>Grey-box web and API test, OWASP ASVS L2</dd>
+          <dt>Result</dt><dd>13 findings, all critical and high fixed and retested</dd>
+        </dl>
+        <h3>The chain</h3>
+        <ul>
+          <li><b>IDOR</b> on <code>GET /api/v2/orders/{id}</code>: the API checked the session but never the owner, so any shopper could walk sequential order IDs.</li>
+          <li>One leaked order exposed an internal <code>image_source</code> field, which pointed me to the product <b>image importer</b>.</li>
+          <li>The importer fetched any URL server-side. Aimed at <code>169.254.169.254</code>, it returned the instance role's temporary <b>IAM keys</b> inside the error message.</li>
+          <li>The role had <code>s3:*</code> on the backup bucket: nightly database dumps, readable and overwritable.</li>
+        </ul>
+        <h3>What changed because of it</h3>
+        <p>The team moved to IMDSv2, cut the instance role to a single prefix, and added object-level authorization tests to CI so an IDOR now fails the build instead of reaching production. I wrote the remediation guide with their developers and retested every fix.</p>
+      </div>
+      <div>
+        <div class="panel">
+          <p class="ph">Proof of concept <span>IDOR, customer data masked</span></p>
+<pre><span class="k">GET</span> /api/v2/orders/<span class="x">48213</span> HTTP/2
+Host: shop.<span class="c">[redacted]</span>.com
+Authorization: Bearer eyJhbGciOi…<span class="c">  # my own test account</span>
+
+<span class="k">HTTP/2 200</span>
+{ "order_id": 48213,
+  "customer": "R***** H*****",
+  "phone": "+880 17** ***412",
+  "address": "House **, Road **, Dhanmondi",
+  "image_source": "<span class="x">http://importer.internal:8080</span>" }</pre>
+        </div>
+        <div class="panel">
+          <p class="ph">Findings <span>5 of 13 shown</span></p>
+          <div class="sevrow" id="sev"></div>
+          <table class="stack">
+            <thead><tr><th>Finding</th><th>CVSS 3.1</th><th>Status</th></tr></thead>
+            <tbody id="find"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sep">
+
+  <section class="band" id="cf02">
+    <div class="wrap case flip">
+      <div class="text">
+        <div class="filehead"><span class="fileno">CASE STUDY 02 · defensive</span><span class="stamp b">Open source</span></div>
+        <h2>Case study: A purple-team lab where no rule counts until a real attack has made it fire</h2>
+        <dl class="meta">
+          <dt>Stack</dt><dd>Wazuh, Sysmon, auditd, Sigma, Atomic Red Team</dd>
+          <dt>Hosts</dt><dd>3 Windows 11, 1 Windows Server 2022 DC, 2 Ubuntu servers</dd>
+          <dt>Rules</dt><dd>42 Sigma rules, converted and deployed from CI</dd>
+          <dt>Repo</dt><dd><a href="https://github.com/urbi489">github.com/urbi489</a></dd>
+        </dl>
+        <h3>How it works</h3>
+        <ul>
+          <li>Every rule ships with an Atomic Red Team test. A GitHub Action replays the attack in the lab and fails the pipeline if no alert arrives within 5 minutes.</li>
+          <li>Coverage is measured against what was actually tested, not against the whole ATT&amp;CK matrix, so the number can't be inflated.</li>
+          <li>Each rule is tuned against a week of normal lab noise before it ships.</li>
+        </ul>
+        <h3>What it showed</h3>
+        <p>Execution and credential access are well covered, because those attacks are noisy on the endpoint. Exfiltration and impact are the blind spots, and that is also where case study 01 ended: the bucket read raised no alert. The next milestone adds CloudTrail rules for exactly that hop.</p>
+<pre><span class="k">title:</span> LSASS memory read by non-system process
+<span class="k">id:</span> sj-cred-001
+<span class="k">tags:</span> [attack.credential_access, attack.t1003.001]
+<span class="k">logsource:</span> { product: windows, service: sysmon }
+<span class="k">detection:</span>
+  sel: { EventID: 10, TargetImage|endswith: '\lsass.exe',
+         GrantedAccess|contains: ['0x1010', '0x1410'] }
+  filter: { SourceUser|startswith: 'NT AUTHORITY' }
+  condition: sel and not filter
+<span class="k">level:</span> high</pre>
+      </div>
+      <div>
+        <div class="panel">
+          <div class="big">
+            <div><b class="hot" id="pct">0%</b><span>of tested techniques detected</span></div>
+            <div><b id="cov">0</b><span>of <span id="tested">0</span> techniques proven</span></div>
+          </div>
+          <div class="grid" id="grid" role="table" aria-label="ATT&amp;CK coverage by tactic"></div>
+          <div class="key"><span><i class="on"></i>Alert fired in replay</span><span><i></i>Tested, no alert yet</span></div>
+        </div>
+        <div class="panel">
+          <p class="ph">Signal, one lab day <span>bar length on a log scale</span></p>
+          <div class="funnel" id="funnel"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band blue" id="method">
+    <div class="wrap">
+      <h2>How an engagement runs</h2>
+      <div class="steps" style="--ink:#fff">
+        <div><b>Scope</b><p style="color:#c3cde9">Rules of engagement, test accounts and the one asset you fear losing most.</p></div>
+        <div><b>Map</b><p style="color:#c3cde9">Every route, role and trust boundary, before any payload is sent.</p></div>
+        <div><b>Chain</b><p style="color:#c3cde9">Low findings combined into the path a real attacker would take.</p></div>
+        <div><b>Report</b><p style="color:#c3cde9">CVSS-scored findings, proof of concept and a fix your developers can apply.</p></div>
+        <div><b>Detect</b><p style="color:#c3cde9">Retest each fix, then hand over Sigma rules so the chain gets caught next time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="toolkit">
+    <div class="wrap">
+      <h2>Toolkit</h2>
+      <div class="tools">
+        <div>
+          <h3>Offensive</h3>
+          <ul>
+            <li>Burp Suite Pro <span>web and API</span></li>
+            <li>ffuf, nuclei, Nmap <span>recon</span></li>
+            <li>BloodHound, Impacket <span>Active Directory</span></li>
+            <li>Pacu <span>AWS attacks</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Defensive</h3>
+          <ul>
+            <li>Wazuh, Elastic <span>SIEM</span></li>
+            <li>Sigma, YARA <span>detections</span></li>
+            <li>Sysmon, auditd, CloudTrail <span>telemetry</span></li>
+            <li>Atomic Red Team <span>validation</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Cloud and code</h3>
+          <ul>
+            <li>AWS IAM, ScoutSuite <span>cloud reviews</span></li>
+            <li>Python, Bash, Go <span>tooling</span></li>
+            <li>Semgrep <span>code review</span></li>
+            <li>GitHub Actions <span>security CI</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="band blue" id="contact">
+  <div class="wrap cols">
+    <div>
+      <h2>Find the chain before someone else does.</h2>
+      <p>Tell me what the system does, when it goes live and which data would hurt most to lose. I reply within two working days.</p>
+    </div>
+    <div class="links">
+      <a href="mailto:urbi489@gmail.com"><b>Email</b><span>urbi489@gmail.com</span></a>
+      <a href="https://github.com/urbi489"><b>GitHub</b><span>github.com/urbi489</span></a>
+    </div>
+  </div>
+  <div class="wrap small">Sanjana · Dhaka, Bangladesh</div>
+</footer>
+
+<script>
+{
+  const sev=[["Critical",1,"c"],["High",3,"h"],["Medium",5,""],["Low",4,""]];
+  document.getElementById('sev').innerHTML=sev.map(([k,n,c])=>`<div class="${c}"><b>${n}</b><span>${k}</span></div>`).join('');
+  const finds=[
+    ["F-01","IDOR + SSRF chain to backup bucket",9.6,"AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N","Fixed"],
+    ["F-02","Stored XSS in admin order notes",8.7,"AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:N","Fixed"],
+    ["F-03","SSRF in image importer reaches IMDS",7.7,"AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N","Fixed"],
+    ["F-04","IDOR on order API exposes PII",6.5,"AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N","Fixed"],
+    ["F-05","JWT still valid after logout",4.8,"AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N","Accepted risk"]];
+  document.getElementById('find').innerHTML=finds.map(([id,t,s,v,st])=>`<tr><td class="f"><b>${id}</b> ${t}<span class="v mono">${v}</span></td><td class="s ${s>=7?'hot':''}" data-l="CVSS 3.1">${s.toFixed(1)}</td><td data-l="Status"><span class="pill ${st==='Fixed'?'ok':''}">${st}</span></td></tr>`).join('');
+
+  const tac=[["Initial access",9,5,"T1190"],["Execution",12,9,"T1059"],["Persistence",14,8,"T1547"],["Privilege escalation",10,6,"T1068"],["Defense evasion",16,7,"T1562"],["Credential access",11,8,"T1003"],["Discovery",13,7,"T1087"],["Lateral movement",7,4,"T1021"],["Collection",8,3,"T1005"],["Command and control",9,4,"T1071"],["Exfiltration",6,1,"T1567"],["Impact",8,2,"T1486"]];
+  const short={"Privilege escalation":"Privilege esc.","Command and control":"Command & ctrl","Lateral movement":"Lateral move."};
+  const narrow=matchMedia('(max-width:600px)');
+  const drawGrid=()=>{document.getElementById('grid').innerHTML=tac.map(([k,t,c,ex])=>`<span role="rowheader" title="e.g. ${ex}">${narrow.matches&&short[k]?short[k]:k}</span><div class="cells" role="cell">${Array.from({length:t},(_,i)=>`<i class="${i<c?'on':''}"></i>`).join('')}</div><span class="n" role="cell">${c} / ${t}</span>`).join('')};
+  drawGrid();narrow.addEventListener('change',drawGrid);
+  const tested=tac.reduce((a,x)=>a+x[1],0),covered=tac.reduce((a,x)=>a+x[2],0),pct=Math.round(covered/tested*100)+'%';
+  document.getElementById('cov').textContent=covered;
+  document.getElementById('tested').textContent=tested;
+  document.getElementById('pct').textContent=pct;
+  document.getElementById('pctTop').textContent=pct;
+
+  const fun=[["Raw events ingested",1240000],["Sigma rule matches",3900],["Alerts after tuning",212],["Replayed attacks confirmed",64]];
+  const lmax=Math.log10(fun[0][1]);
+  document.getElementById('funnel').innerHTML=fun.map(([k,n],i)=>`<div class="lab"><span>${k}</span><b>${n.toLocaleString('en-US')}</b></div><div class="bar ${i===fun.length-1?'hot':''}" style="width:${Math.max(4,Math.log10(n)/lmax*100)}%"></div>`).join('');
+
+  const fig=document.getElementById('hero');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const N=[["Attacker","shopper account",""],["Order API","IDOR","T1190"],["Image importer","SSRF","T1190"],["IMDS 169.254.169.254","IAM keys","T1552.005"],["Backup bucket","s3:* on dumps","T1078.004 · T1530"]];
+  const det=[0,0,0,1,0];
+  const drawHero=()=>{
+    const W=fig.clientWidth,H=fig.clientHeight,vert=W<760;
+    const n=N.length;
+    let s=`<defs><linearGradient id="dv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f3d80"/><stop offset="1" stop-color="#12295d"/></linearGradient></defs>`;
+    let P,bw,bh=78;
+    const cy=bh/2+18;
+    if(vert){
+      bw=Math.min(190,W*0.56);const m=bh/2+12;
+      P=N.map((_,i)=>({x:16+bw/2,y:m+i*(H-2*m)/(n-1)}));
+    }else{
+      bw=Math.min(180,(W-(n-1)*28)/n);
+      P=N.map((_,i)=>({x:bw/2+i*(W-bw)/(n-1),y:cy}));
+    }
+    const d=P.map((p,i)=>`${i?'L':'M'}${p.x},${p.y}`).join(' ');
+    s+=`<path id="ap" d="${d}" fill="none" stroke="#ff3d82" stroke-width="3" stroke-dasharray="9 7"/>`;
+    P.forEach((p,i)=>{
+      const last=i===n-1;
+      const nm=N[i][0].length*7.8>bw-20?N[i][0].split(' ')[0]:N[i][0];
+      s+=`<g transform="translate(${p.x-bw/2},${p.y-bh/2})"><rect x="3" y="6" width="${bw}" height="${bh}" rx="10" fill="#000" opacity=".3"/><rect width="${bw}" height="${bh}" rx="10" fill="url(#dv)" stroke="${last?'#ff3d82':'#3d5aa3'}" stroke-width="${last?3:1.5}"/><rect x="2" y="2" width="${bw-4}" height="30" rx="8" fill="#fff" opacity=".07"/>`;
+      s+=`<text x="12" y="23" fill="#fff" font-size="14" font-weight="700">${nm}</text><text x="12" y="43" fill="#aeb9d8" font-size="13">${N[i][1]}</text>`;
+      if(N[i][2])s+=`<text x="12" y="64" fill="#ff8fb5" font-size="13" font-weight="600" font-family="Red Hat Mono,monospace">${N[i][2]}</text>`;
+      s+=`</g>`;
+      if(vert){
+        if(i)s+=`<text x="${16+bw+20}" y="${p.y+5}" fill="${det[i]?'#3ddc97':'#9aa6c8'}" font-size="13" font-weight="600">${det[i]?'alert fired':'blind spot'}</text>`;
+      }else if(i>0){
+        const ly=cy+bh/2+44;
+        s+=`<line x1="${p.x}" y1="${p.y+bh/2+8}" x2="${p.x}" y2="${ly-18}" stroke="${det[i]?'#3ddc97':'#3d5aa3'}" stroke-width="2" stroke-dasharray="${det[i]?'0':'3 4'}"/>`;
+        s+=`<g transform="translate(${p.x},${ly})"><circle r="14" fill="${det[i]?'#3ddc97':'none'}" stroke="${det[i]?'#3ddc97':'#7d8bb3'}" stroke-width="2"/>${det[i]?'<path d="M-6,0L-2,5L7,-5" fill="none" stroke="#0b1f4b" stroke-width="3"/>':'<path d="M-5,-5L5,5M5,-5L-5,5" stroke="#7d8bb3" stroke-width="2"/>'}</g>`;
+        s+=`<text x="${p.x}" y="${ly+36}" text-anchor="middle" fill="${det[i]?'#3ddc97':'#aeb9d8'}" font-size="13" font-weight="600">${det[i]?'alert fired':'blind spot'}</text>`;
+      }
+    });
+    if(!vert)s+=`<text x="0" y="${cy+bh/2+49}" fill="#c3cde9" font-size="14" font-weight="700">Detection lane</text>`;
+    if(!reduce)s+=`<circle r="7" fill="#ff3d82" stroke="#fff" stroke-width="2"><animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;.85;1" calcMode="linear"><mpath href="#ap"/></animateMotion></circle>`;
+    fig.innerHTML=`<svg width="${W}" height="${H}" aria-hidden="true">${s}</svg>`;
+  };
+  const heroRO=new ResizeObserver(drawHero);heroRO.observe(fig);
+}
+</script>
+</body>
+</html>
